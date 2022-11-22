@@ -48,7 +48,7 @@ namespace CEB
         // static variables
 
         // error type
-        static std::map<int, std::string> errorTypes;
+        static inline std::map<int, std::string> errorTypes;
 
     public:
         // static functions

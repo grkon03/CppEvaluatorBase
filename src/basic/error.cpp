@@ -2,10 +2,6 @@
 
 namespace CEB
 {
-    // declare
-
-    std::map<int, std::string> CEBError::errorTypes;
-
     // CEBError
 
     // constructors
@@ -44,7 +40,7 @@ namespace CEB
     bool CEBError::setErrorType(int _status, std::string _errorType)
     {
         // if overlap status, return false
-        if (errorTypes.find(_status) == errorTypes.end())
+        if (errorTypes.find(_status) != errorTypes.end())
             return false;
 
         // set mapping status to error type

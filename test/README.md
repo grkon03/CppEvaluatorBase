@@ -4,6 +4,8 @@ Here are some test codes.
 
 ## How To Test
 
+### Build
+
 To test correctness, run
 
 ```zsh
@@ -17,3 +19,9 @@ cmake --build build
 ```
 
 here.
+
+### Run
+
+```zsh
+build/CEBtest
+```
