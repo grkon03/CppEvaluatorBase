@@ -4,10 +4,8 @@ cmake_minimum_required(VERSION 3.16)
 # subdirectories
 add_subdirectory(basic)
 
-# library
-add_library(
-    CppEvaluatorBaseSrc
+# link libraries
+target_link_libraries(
+    ${PROJECT_NAME}
+    CppEvaluatorBaseBasic
 )
-
-# dependencies
-add_dependencies(CppEvaluatorBaseSrc CppEvaluatorBaseBasic)

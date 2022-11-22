@@ -2,6 +2,10 @@
 
 namespace CEB
 {
+    // declare
+
+    std::map<int, std::string> CEBError::errorTypes;
+
     // CEBError
 
     // constructors

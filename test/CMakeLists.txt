@@ -19,17 +19,31 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+# testing
+
 enable_testing()
+
+# sources 
+
+set(src
+../src/basic/error.cpp
+)
+
+# compile
 
 set(
   basic_test
-  ./basic/error_test.cpp
+  ./basic_test/error_test.cpp
 )
 
 add_executable(
   CEBtest
   ${basic_test}
+  ${src}
 )
+
+# gtest
+
 target_link_libraries(
   CEBtest
   GTest::gtest_main

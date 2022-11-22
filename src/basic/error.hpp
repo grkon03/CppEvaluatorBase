@@ -4,12 +4,18 @@ error.hpp
 Defining error type
 */
 
+#pragma once
+
 #include <map>
 #include <string>
 #include <iostream>
 
 namespace CEB
 {
+    class CEBError;
+    class _CEBErrorType;
+    typedef const _CEBErrorType CEBErrorType;
+
     class CEBError
     {
     private:
@@ -51,23 +57,18 @@ namespace CEB
         static bool setErrorType(int, std::string);
     };
 
-    namespace
+    class _CEBErrorType
     {
-        class _CEBErrorType
-        {
-        private:
-            const int status;
+    private:
+        const int status;
 
-        public:
-            // constructors
-            _CEBErrorType(int, std::string);
+    public:
+        // constructors
+        _CEBErrorType(int, std::string);
 
-            int getStatus() const;
-            CEBError operator()(std::string) const;
-        };
-    }
-
-    using CEBErrorType = const _CEBErrorType;
+        int getStatus() const;
+        CEBError operator()(std::string) const;
+    };
 
     // global variables
 
