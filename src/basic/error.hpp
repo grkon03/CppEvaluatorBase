@@ -73,4 +73,5 @@ namespace CEB
     // global variables
 
     CEBErrorType NoErr(0, "No Error");
+    CEBErrorType MoveBackErr(110, "Move Back Error");
 }

@@ -27,6 +27,8 @@ enable_testing()
 
 set(src
 ../src/basic/error.cpp
+../src/basic/player.cpp
+../src/basic/board.cpp
 )
 
 # compile
