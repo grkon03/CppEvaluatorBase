@@ -6,7 +6,7 @@ namespace CEB
     inline Player operator++(Player p) { return (p = !p); }
     inline Player operator++(Player p, int _)
     {
-        p = Player(1 - p);
+        p = !p;
         return !p;
     }
 }
