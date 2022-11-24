@@ -18,4 +18,5 @@ namespace CEB
 
     inline Player operator!(Player);
     inline Player operator++(Player);
+    inline Player operator++(Player, int);
 }
