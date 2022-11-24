@@ -5,13 +5,13 @@ using namespace CEB;
 
 TEST(CEBErrorTest, NoErrorTest)
 {
-    EXPECT_EQ(CEBError(NoErr).getErrorType(), "No Error");
+    EXPECT_EQ(CEBError(cebet::NoErr).getErrorType(), "No Error");
 
-    CEBError noErrT = NoErr;
+    CEBError noErrT = cebet::NoErr;
     EXPECT_EQ(noErrT.getStatus(), 0);
     EXPECT_EQ(noErrT.getMessage(), "");
 
-    CEBError noErrWithMes = NoErr("message");
+    CEBError noErrWithMes = cebet::NoErr("message");
     EXPECT_EQ(noErrWithMes.getStatus(), 0);
     EXPECT_EQ(noErrWithMes.getMessage(), "message");
     EXPECT_EQ(noErrWithMes.messageWithErrorType(), "No Error : message");

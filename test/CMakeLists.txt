@@ -25,23 +25,20 @@ enable_testing()
 
 # sources 
 
-set(src
+set(srcs
 ../src/basic/error.cpp
-../src/basic/player.cpp
-../src/basic/board.cpp
 )
+
+file(GLOB CEBtest_basic basic_test/*.cpp)
+file(GLOB CEBtest_testcase testcase/*.cpp)
 
 # compile
 
-set(
-  basic_test
-  ./basic_test/error_test.cpp
-)
-
 add_executable(
   CEBtest
-  ${basic_test}
-  ${src}
+  ${srcs}
+  ${CEBtest_basic}
+  ${CEBtest_testcase}
 )
 
 # gtest
