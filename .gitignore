@@ -33,4 +33,5 @@
 
 # meta
 .vscode
+.DS_Store
 build
