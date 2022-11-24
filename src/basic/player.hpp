@@ -16,11 +16,6 @@ namespace CEB
         PlayerLimit,
     };
 
-    inline Player operator!(Player p) { return (p == NoPlayer || p == PlayerLimit) ? p : Player(1 - p); }
-    inline Player operator++(Player p) { return (p = !p); }
-    inline Player operator++(Player p, int _)
-    {
-        p = !p;
-        return !p;
-    }
+    inline Player operator!(Player p) { return (p == NoPlayer || p == PlayerLimit) ? p : Player(1 - (int)p); }
+    inline Player &operator++(Player &p) { return (p = !p); }
 }
