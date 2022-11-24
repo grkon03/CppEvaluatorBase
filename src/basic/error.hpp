@@ -39,10 +39,10 @@ namespace CEB
         // operators
 
         friend std::ostream &operator<<(std::ostream &, const CEBError &);
-        bool operator==(const CEBError &);
-        bool operator==(CEBErrorType &);
-        bool operator!=(const CEBError &);
-        bool operator!=(CEBErrorType &);
+        bool operator==(const CEBError &) const;
+        bool operator==(CEBErrorType &) const;
+        bool operator!=(const CEBError &) const;
+        bool operator!=(CEBErrorType &) const;
 
     private:
         // static variables
@@ -72,6 +72,10 @@ namespace CEB
 
     // global variables
 
-    CEBErrorType NoErr(0, "No Error");
-    CEBErrorType MoveBackErr(110, "Move Back Error");
+    namespace cebet
+    {
+        CEBErrorType NoErr(0, "No Error");
+        CEBErrorType MoveBackErr(110, "Move Back Error");
+        CEBErrorType MoveErr(120, "Move Error");
+    }
 }

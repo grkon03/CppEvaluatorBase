@@ -10,13 +10,17 @@ namespace CEB
     // player type
     enum Player : int
     {
-        NonePlayer = -1,
+        NoPlayer = -1,
         FirstP,
         SecondP,
         PlayerLimit,
     };
 
-    inline Player operator!(Player);
-    inline Player operator++(Player);
-    inline Player operator++(Player, int);
+    inline Player operator!(Player p) { return (p == NoPlayer || p == PlayerLimit) ? p : Player(1 - p); }
+    inline Player operator++(Player p) { return (p = !p); }
+    inline Player operator++(Player p, int _)
+    {
+        p = !p;
+        return !p;
+    }
 }
