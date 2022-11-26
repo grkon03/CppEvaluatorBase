@@ -44,6 +44,22 @@ TEST(BoardTestCaseTTT, MoveTest1)
     EXPECT_EQ(game.getTurnSpent(), 3);
 }
 
+TEST(BoardTestCaseTTT, MoveBackTest)
+{
+    EXPECT_EQ(game.MoveBack(), cebet::NoErr);
+    EXPECT_EQ(game.getCircleBit(), 0b000010000);
+    EXPECT_EQ(game.getCrossBit(), 0b100000000);
+    EXPECT_EQ(game.getPlayer(), FirstP);
+    EXPECT_EQ(game.getTurnSpent(), 2);
+
+    // re-take a move
+    EXPECT_EQ(game.Move(S13), cebet::NoErr);
+    EXPECT_EQ(game.getCircleBit(), 0b000010100);
+    EXPECT_EQ(game.getCrossBit(), 0b100000000);
+    EXPECT_EQ(game.getPlayer(), SecondP);
+    EXPECT_EQ(game.getTurnSpent(), 3);
+}
+
 TEST(BoardTestCaseTTT, IllegalMoveTest)
 {
     EXPECT_EQ(game.Move(S13), cebet::MoveErr);

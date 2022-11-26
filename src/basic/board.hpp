@@ -10,6 +10,8 @@ Defining abstract class of game board
 
 namespace CEB
 {
+    constexpr int TRACE_LENGTH = 200;
+
     // MoveRep is a type to store ONE move.
     template <typename MoveRep>
     class Board
@@ -20,7 +22,7 @@ namespace CEB
         Player player;
         int turnSpent;
 
-        MoveRep trace[200];
+        MoveRep trace[TRACE_LENGTH];
         int traceLength;
 
     public:
@@ -80,15 +82,18 @@ namespace CEB
     template <typename T>
     CEBError Board<T>::MoveBack()
     {
-        if (traceLength)
+        if (traceLength == 0)
             return cebet::MoveBackErr("There is no move before this board.");
 
         CEBError err;
         int i;
 
+        // initializing board...
         InitBoard();
+        player = FirstP;
 
         --traceLength;
+        --turnSpent;
         for (i = 0; i < traceLength; i++)
         {
             err = this->_Move(trace[i]);

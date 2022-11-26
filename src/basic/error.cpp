@@ -34,8 +34,8 @@ namespace CEB
 
     bool CEBError::operator==(const CEBError &err) const { return (status == err.status); }
     bool CEBError::operator==(CEBErrorType &errt) const { return (status == errt.getStatus()); }
-    bool CEBError::operator!=(const CEBError &err) const { return !(*this != err); };
-    bool CEBError::operator!=(CEBErrorType &errt) const { return !(*this != errt); }
+    bool CEBError::operator!=(const CEBError &err) const { return !(*this == err); };
+    bool CEBError::operator!=(CEBErrorType &errt) const { return !(*this == errt); }
 
     bool CEBError::setErrorType(int _status, std::string _errorType)
     {
